@@ -32,7 +32,6 @@ namespace PointCloudVisualizer
                 ComputeShader = Resources.Load<ComputeShader>(ComputeShaderName),
                 RenderData = dataQuery.ToComponentDataArray<T0>(Allocator.TempJob),
                 PropertyCount = PropertyCount
-
             }.WriteToRenderTexture();
 
             var eventEntities = eventQuery.ToEntityArray(Allocator.TempJob);

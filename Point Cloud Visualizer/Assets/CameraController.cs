@@ -3,7 +3,7 @@
 namespace Controllers {
     public class CameraController : MonoBehaviour {
         private float yaw = 0.0f;
-        private float pitch = 0.0f;
+        private float pitch = 30.0f;
 
         public float NormalSpeed = 100;
 
