@@ -6,36 +6,47 @@ namespace Controllers {
         private float pitch = 30.0f;
 
         public float NormalSpeed = 100;
+        public GameObject Menu;
+
 
         void Start() {
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
+            //Cursor.lockState = CursorLockMode.Locked;
+            //Cursor.visible = false;
         }
 
-        void Update() {
-            if (Input.GetKey(KeyCode.Escape)) {
-                Cursor.lockState = CursorLockMode.None;
-                Cursor.visible = true;
+        void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                Menu.SetActive(!Menu.activeSelf);
             }
-            if (Input.GetMouseButtonDown(0)) {
-                Cursor.lockState = CursorLockMode.Locked;
-                Cursor.visible = false;
+
+            if (Input.GetKeyDown("space"))
+            {
+                Cursor.lockState = Cursor.lockState == CursorLockMode.Locked ? CursorLockMode.None : CursorLockMode.Locked;
+                Cursor.visible = !Cursor.visible;
             }
         }
 
-        void FixedUpdate() {
+        void FixedUpdate()
+        {
             //(WASD, EQ and Mouse)
             float moveHorizontal = Input.GetAxis("Horizontal");
             float moveVertical = Input.GetAxis("Vertical");
             float moveUp = Input.GetKey(KeyCode.E) ? 1 : Input.GetKey(KeyCode.Q) ? -1 : 0;
 
             float speed = NormalSpeed;
-            if (Input.GetKey(KeyCode.C)) {
-                speed /= 10; ;
-            } else if (Input.GetKey(KeyCode.LeftShift)) {
+            if (Input.GetKey(KeyCode.C))
+            {
+                speed /= 10;
+            }
+            else if (Input.GetKey(KeyCode.LeftShift))
+            {
                 speed *= 5;
             }
-            transform.Translate(new Vector3(moveHorizontal * speed * Time.deltaTime, moveUp * speed * Time.deltaTime, moveVertical * speed * Time.deltaTime));
+
+            transform.Translate(new Vector3(moveHorizontal * speed * Time.deltaTime, moveUp * speed * Time.deltaTime,
+                moveVertical * speed * Time.deltaTime));
 
             yaw += 2 * Input.GetAxis("Mouse X");
             pitch -= 2 * Input.GetAxis("Mouse Y");
