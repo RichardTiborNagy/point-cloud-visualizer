@@ -158,26 +158,26 @@ public class PointCloudDataLoader : MonoBehaviour
         switch (classification)
         {
             case 1:
-                return new float4(191, 191, 191, 1);
+                return new float4(0, 0.8f, 0, 1);
             case 2:
-                return new float4(132, 64, 0, 1);
+                return new float4(0.3f, 0.3f, 0, 1);
             case 3:
-                return new float4(0, 130, 0, 1);
+                return new float4(0, 0.5f, 0, 1);
             case 4:
-                return new float4(0, 191, 0, 1);
+                return new float4(0, 0.8f, 0, 1);
             case 5:
-                return new float4(0, 255, 0, 1);
+                return new float4(0, 1, 0, 1);
             case 6:
-                return new float4(0, 129, 194, 1);
+                return new float4(0, 0.5f, 0.8f, 1);
             case 7:
-                return new float4(254, 0, 0, 1);
+                return new float4(1, 0, 0, 1);
             case 8:
-                return new float4(255, 255, 0, 1);
+                return new float4(1, 1, 0, 1);
             case 9:
-                return new float4(0, 0, 251, 1);
+                return new float4(0, 0, 1, 1);
             case 0:
             default:
-                return new float4(133,133,133,1);
+                return new float4(0.5f, 0.5f, 0.5f, 1);
         }
     }
 }
